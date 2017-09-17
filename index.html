@@ -42,16 +42,22 @@
     
     Our first gem is so popular that we've run out of stock already! Well, Flatlander gems are pretty rare, so it shouldn't be a big surprise. Luckily there is a soldOut property to our gem. When a gem is soldOut, hide the .product element.
 
+    1.7 Look, More Gems! 250 pts
+    
+    Looks like the Flatlanders have discovered more gems for us to sell in the gemStore. That's a relief! Follow the objectives below to add these new gems to the store.
+    
+    In the app.js file we changed things up a little with a new gems array. Assign gems to a products property inside StoreController.
+    
+    You know how to display all the products, don't you? Use the correct directive to display all the products in product row divs.
+
   -->
 
   <body class="container" ng-controller="StoreController as store">
-    <div class="product row" ng-hide="store.product.soldOut">
+    <div class="product row" ng-repeat="product in store.products">
       <h3>
-        {{store.product.name}}
-        <em class="pull-right">${{store.product.price}}</em>
+        {{product.name}}
+        <em class="pull-right">${{product.price}}</em>
       </h3>
-      <button ng-show="store.product.canPurchase">Add to Cart</button>
     </div>
   </body>
 </html>
-
